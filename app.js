@@ -3,8 +3,10 @@ const ejs = require('ejs');
 
 const app = express();
 const port = 3000;
-// app.use('view engine', ejs);
-app.set('view engine', 'ejs');
+
+// Uncomment the following line to enable EJS
+app.set('view engine', "ejs");
+
 // Middleware for parsing JSON and URL-encoded bodies
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -12,6 +14,9 @@ app.use(express.urlencoded({ extended: true }));
 // Basic route
 app.get('/', (req, res) => {
     res.render('books');
+});
+app.get('/digital-library', (req, res) => {
+    res.send('This is Digital Library Home.');
 });
 
 // Error handling middleware
