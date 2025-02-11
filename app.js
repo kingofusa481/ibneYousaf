@@ -4,13 +4,13 @@ const ejs = require('ejs');
 const app = express();
 const port = 3000;
 
-// Uncomment the following line to enable EJS
-app.set('view engine', "ejs");
 
 // Middleware for parsing JSON and URL-encoded bodies
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Uncomment the following line to enable EJS
+app.set('view engine', "ejs");
 // Basic route
 app.get('/', (req, res) => {
     res.render('books');
@@ -19,10 +19,10 @@ app.get('/', (req, res) => {
 
 
 // Error handling middleware
-// app.use((err, req, res, next) => {
-//     console.error(err.stack);
-//     res.status(500).send('Something broke!');
-// });
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke! 123');
+});
 
 // Start the server
 app.listen(port, () => {
