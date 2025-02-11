@@ -15,15 +15,14 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
     res.render('books');
 });
-app.get('/digital-library', (req, res) => {
-    res.send('This is Digital Library Home.');
-});
+
+
 
 // Error handling middleware
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('Something broke!');
-});
+// app.use((err, req, res, next) => {
+//     console.error(err.stack);
+//     res.status(500).send('Something broke!');
+// });
 
 // Start the server
 app.listen(port, () => {
